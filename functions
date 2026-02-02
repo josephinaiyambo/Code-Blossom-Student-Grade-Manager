@@ -11,3 +11,14 @@ grade: getGrade(marks), // get letter grade
 status: getStatus(marks),//determain pass/fail status
 }
 };
+
+function addStudent(Students) {
+//To see if the list of students exists
+if (typeof Students === 'undefined') {
+Students = [];
+}
+//add Student
+Students.push(student);
+console.log( Student '{Student.name}' added succesfully!);
+return Students;
+}
