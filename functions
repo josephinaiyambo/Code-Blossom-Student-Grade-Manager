@@ -1,0 +1,13 @@
+//Student info
+let Students= [];
+//Function cresteStudent()
+function createStudent(name, studentNumber, marks, subject) {
+return {
+name: name,
+sudentNumber: studentNumber,
+marks: parseInt(marks), //convert to percentage
+subject: subject,
+grade: getGrade(marks), // get letter grade
+status: getStatus(marks),//determain pass/fail status
+}
+};
