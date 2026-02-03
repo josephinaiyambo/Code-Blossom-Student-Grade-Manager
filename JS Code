@@ -1,0 +1,99 @@
+// Student Grade Manager
+let students = [];
+let currentEditId = null;
+// Add a new student
+function addStudent() {
+    const number = studentNumberInput.value.trim();
+    const name = studentNameInput.value.trim();
+    const grade = parseFloat(studentGradeInput.value);
+
+    // Validate
+    if (!number || !name || isNaN(grade) || grade < 0 || grade > 100) {
+        alert('Please fill in all spaces corectly. Grade must be 0-100.');
+        return;
+    }
+
+// Remove student
+function removeStudent(id) {
+    if (!confirm('Remove this student?')) return;
+    
+    students = students.filter(s => s.id !== id);
+    if (currentEditId === id) cancelEdit();
+    saveToStorage();
+    displayStudents();
+}
+
+// Display all students
+function displayStudents(filteredStudents = null) {
+    const studentsToShow = filteredStudents || students;
+    
+    if (studentsToShow.length === 0) {
+        studentsContainer.innerHTML = '<p id="noStudents">No students found.</p>';
+        noStudentsMsg = document.getElementById('noStudents');
+        return;
+    }
+
+    let html = '';
+    studentsToShow.forEach(student => {
+        html += `
+            <div class="student-card">
+                <div class="student-info">
+                    <strong>${student.name}</strong> (${student.number})<br>
+                    Grade: ${student.grade}% | Letter: ${student.letterGrade} | 
+                    Status: <span class="${student.status.toLowerCase()}">${student.status}</span>
+                </div>
+                <div class="student-actions">
+                    <button onclick="editStudent('${student.id}')">Edit</button>
+                    <button onclick="deleteStudent('${student.id}')">Delete</button>
+                </div>
+            </div>
+        `;
+    });
+
+    studentsContainer.innerHTML = html;
+}
+
+// Get letter grade
+function getLetterGrade(grade) {
+    if (grade >= 80) return 'A';
+    if (grade >= 70) return 'B';
+    if (grade >= 60) return 'C';
+    if (grade >= 50) return 'D';
+    return 'F';
+}
+
+// Search student
+function searchStudent() {
+    const term = searchInput.value.trim().toLowerCase();
+    if (!term) {
+        displayStudents();
+        return;
+    }
+
+    const filtered = students.filter(s => 
+        s.name.toLowerCase().includes(term) || 
+        s.number.toLowerCase().includes(term)
+    );
+    
+    displayStudents(filtered);
+}
+
+//  sample data
+function sampleData() {
+    students = [
+        { id: '1', Studentnumber: '22633001', name: 'Rosalia', grade: 92, letterGrade: 'A', status: 'Pass' },
+        { id: '2', Studentnumber: '22633002', name: 'Josephina Iyambo', grade: 78, letterGrade: 'C', status: 'Pass' },
+        { id: '3', Studentnumber: '22633003', name: 'Fransiska Mennas', grade: 85, letterGrade: 'B', status: 'Pass' },
+      
+    ];
+    
+    saveToStorage();
+    displayStudents();
+}
+
+// Sort by name
+function sortByName() {
+    students.sort((a, b) => a.name.localeCompare(b.name));
+    saveToStorage();
+    displayStudents();
+}
