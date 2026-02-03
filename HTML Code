@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Student Grade Manager</h1>
+    
+    <div class="form-section">
+        <h2>Add/Edit Student</h2>
+        <div class="form-group">
+            <label for="studentNumber">Student Number:</label>
+            <input type="text" id="studentNumber" placeholder="e.g., 226086459">
+        </div>
+        
+        <div class="form-group">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" placeholder="e.g., Fransiska Mennas">
+        </div>
+        
+        <div class="form-group">
+            <label for="studentGrade">Marks (0-100):</label>
+            <input type="number" id="studentGrade" min="0" max="100" placeholder="e.g., 85">
+        </div>
+        
+        <button id="addBtn">Add Student</button>
+        <button id="updateBtn" style="display:none;">Update Student</button>
+        <button id="cancelBtn" style="display:none;">Cancel</button>
+    </div>
+    
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by name or number...">
+        <button id="searchBtn">Search</button>
+        <button id="clearSearch">Clear</button>
+    </div>
+    
+    <div class="actions">
+        <button id="loadSample">Load Sample Data</button>
+        <button id="sortByName">Sort by Name (A-Z)</button>
+        <button id="clearAll">Clear All</button>
+    </div>
+    
+    <div class="student-list">
+        <h2>Student List</h2>
+        <div id="studentsContainer">
+            <!-- Students list -->
+            <p id="noStudents"><p>id: '1', Studentnumber: '22633001', name: 'Rosalia', Marks: 92, Grade: 'A', status: 'Pass' ,</p>
+<p> id: '2', Studentnumber: '22633002', name: 'Josephina Iyambo', Marks: 78, Grade: 'C', status: 'Pass' ,</p>
+<p> id: '3', Studentnumber: '22633003', name: 'Fransiska Mennas', Marks: 85, Grade: 'B', status: 'Pass' </p> </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
