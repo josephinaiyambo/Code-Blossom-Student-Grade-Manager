@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Blossom Student Marks management system</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="blossom-container">
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-icon">🌸</span>
+                <h1>Code Blossom</h1>
+                <h2>Student Marks Management</h2>
+            </div>
+        </header>
+
+        <div class="stats-row" id="statsRow"></div>
+
+        <div class="dashboard-grid">
+            <aside class="glass-card">
+                <h3>Add/Update</h3>
+                <form id="studentForm" onsubmit="handleFormSubmit(event)">
+                    <input type="hidden" id="editIndex" value="-1">
+                    <div class="form-group">
+                        <label>Student Fullname</label>
+                        <input type="text" id="newName" placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>StudentNo</label>
+                        <input type="text" id="newNumber" placeholder="ID Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mark (%)</label>
+                        <input type="number" id="newMark" min="0" max="100" required>
+                    </div>
+                    <button type="submit" id="submitBtn" class="blossom-btn">Save Record</button>
+                </form>
+            </aside>
+
+            <main class="glass-card">
+                <div class="table-header">
+                    <h3>Student list</h3>
+                    <input type="text" id="searchBar" placeholder="🔍 Search..." onkeyup="searchStudents()">
+                </div>
+                <div class="table-wrapper">
+                    <table id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>StudentNo</th>
+                                <th>Mark</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

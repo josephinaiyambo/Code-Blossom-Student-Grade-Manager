@@ -1,0 +1,56 @@
+:root {
+    --bg-dark-pink: #831843; /* Deep Dark Pink Background */
+    --accent-pink: #fbcfe8;
+    --text-white: #ffffff;
+    --card-bg: rgba(255, 255, 255, 0.15); /* Transparent glass look */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark-pink);
+    margin: 0;
+    padding: 10px;
+    color: var(--text-white);
+    font-size: 13px;
+    overflow: hidden; /* Helps keep it on one page */
+}
+
+.blossom-container { max-width: 1000px; margin: auto; }
+
+.app-header { text-align: center; margin-bottom: 8px; }
+.logo-area h1 { margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
+
+/* Stats Row */
+.stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+.stat-box { background: var(--card-bg); padding: 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); text-align: center; }
+.stat-box h4 { margin: 0; font-size: 0.7rem; color: var(--accent-pink); }
+.stat-box p { margin: 0; font-size: 1.2rem; font-weight: 700; }
+
+/* Grid Layout */
+.dashboard-grid { display: grid; grid-template-columns: 230px 1fr; gap: 15px; align-items: start; }
+.glass-card { background: var(--card-bg); padding: 15px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(10px); }
+
+h3 { margin: 0 0 10px 0; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+
+/* Form Elements */
+.form-group { margin-bottom: 8px; }
+label { display: block; font-size: 0.7rem; margin-bottom: 2px; color: var(--accent-pink); }
+input { width: 100%; padding: 6px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); border-radius: 6px; color: white; font-size: 12px; }
+input::placeholder { color: rgba(255,255,255,0.5); }
+
+.blossom-btn { width: 100%; background: var(--accent-pink); color: var(--bg-dark-pink); border: none; padding: 8px; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 5px; }
+
+/* Table Elements */
+.table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+#searchBar { width: 140px; }
+
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 6px; font-size: 0.7rem; color: var(--accent-pink); border-bottom: 1px solid rgba(255,255,255,0.2); }
+td { padding: 8px 6px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+/* Badges */
+.status-tag { padding: 2px 8px; border-radius: 10px; font-size: 0.65rem; font-weight: 700; }
+.status-tag.pass { background: #dcfce7; color: #166534; }
+.status-tag.fail { background: #fee2e2; color: #991b1b; }
+
+.btn-edit, .btn-delete { background: none; border: none; cursor: pointer; filter: brightness(1.5); }
